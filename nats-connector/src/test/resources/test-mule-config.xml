@@ -1,0 +1,19 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:nats="http://www.mulesoft.org/schema/mule/nats"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/nats http://www.mulesoft.org/schema/mule/nats/current/mule-nats.xsd">
+
+    <nats:config name="config" configId="configId">
+        <nats:connection requiredParameter="aValue" />
+    </nats:config>
+
+    <flow name="sayHiFlow">
+        <nats:say-hi person="Mariano Gonzalez"/>
+    </flow>
+
+    <flow name="retrieveInfoFlow">
+        <nats:retrieve-info config-ref="config"/>
+    </flow>
+
+</mule>
